@@ -72,3 +72,5 @@ const db = [
     requirements: ["AWS", "Docker"],
   },
 ];
+
+export default db;
