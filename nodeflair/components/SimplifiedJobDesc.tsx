@@ -1,12 +1,42 @@
-import db from "../database/db";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
-export default function SimplifiedJobDesc(): JSX.Element {
+export default function SimplifiedJobDesc({
+  db,
+  activeElement,
+  setActiveElement,
+}: any): JSX.Element {
+  // const [visibleRequirements, setVisibleRequirements] = useState<any>([])
+  // const requirementRef = useRef<any>([]);
+
+  // useEffect(() => {
+  //   const containerWidth = requirementRef.current!.clientWidth;
+  //   const elements = requirementRef.current!.children;
+  //   let totalWidth = 0;
+  //   let requirementsToShow = [];
+
+  //   for (let i = 0; i < elements.length; i++) {
+  //     totalWidth += requirementRef.current!.clientWidth;
+  //     if (totalWidth <= containerWidth) {
+  //       requirementsToShow.push(visibleRequirements[i]);
+  //     } else {
+  //       break;
+  //     }
+  //   }
+  //   setVisibleRequirements(requirementsToShow);
+  // }, [db.jobs.requirements]);
+
   return (
     <>
-      {db.map((jobs) => {
+      {db.map((jobs: any) => {
         return (
-          <section className="flex flex-col w-full lg:w-[calc(50%-4rem)] relative h-fit border-[3px] border-green-500 bg-white rounded-lg p-4 mt-4 whitespace-nowrap overflow-hidden">
+          <section
+            key={jobs.id}
+            onClick={() => setActiveElement(jobs)}
+            className={`${
+              activeElement.id === jobs.id && "lg:border-green-500"
+            } relative p-4 mt-4 flex flex-col w-full lg:w-[calc(50%-4rem)] h-fit border-4 bg-white border-gray-300 rounded-xl whitespace-nowrap overflow-hidden hover:cursor-pointer hover:shadow-md transition-transform hover:-translate-y-1`}
+          >
             <div className="flex flex-col sm:flex-row">
               <div>
                 <Image
@@ -51,8 +81,8 @@ export default function SimplifiedJobDesc(): JSX.Element {
               </div>
             </div>
             <div className="w-full border-gray-100 border-2 mt-5"></div>
-            <div className="flex flex-row">
-              {jobs.requirements.map((requirement, index) => {
+            <div className="flex flex-row flex-wrap w-full max-h-10 truncate">
+              {jobs.requirements.map((requirement: string, index: number) => {
                 return (
                   <div
                     key={index}
