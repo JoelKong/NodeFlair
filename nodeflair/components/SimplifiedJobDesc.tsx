@@ -14,10 +14,10 @@ export default function SimplifiedJobDesc({
             onClick={() => setActiveElement(jobs)}
             className={`${
               activeElement.id === jobs.id && "lg:border-green-500"
-            } relative p-4 mt-4 flex flex-col w-[95%] h-fit border-2 bg-white border-gray-300 rounded-xl whitespace-nowrap overflow-hidden hover:cursor-pointer hover:shadow-md transition-transform hover:-translate-y-1`}
+            } relative p-4 mt-4 flex flex-col w-[100%] sm:w-[95%] h-fit border-2 bg-white border-gray-300 rounded-xl whitespace-nowrap overflow-hidden hover:cursor-pointer hover:shadow-md transition-transform hover:-translate-y-1`}
           >
             <div className="flex flex-col sm:flex-row">
-              <div>
+              <div className="min-w-fit">
                 <Image
                   src={`/${jobs.logo}`}
                   alt={jobs.company}
