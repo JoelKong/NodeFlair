@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 export default function SimplifiedJobDesc({
@@ -6,26 +5,6 @@ export default function SimplifiedJobDesc({
   activeElement,
   setActiveElement,
 }: any): JSX.Element {
-  // const [visibleRequirements, setVisibleRequirements] = useState<any>([])
-  // const requirementRef = useRef<any>([]);
-
-  // useEffect(() => {
-  //   const containerWidth = requirementRef.current!.clientWidth;
-  //   const elements = requirementRef.current!.children;
-  //   let totalWidth = 0;
-  //   let requirementsToShow = [];
-
-  //   for (let i = 0; i < elements.length; i++) {
-  //     totalWidth += requirementRef.current!.clientWidth;
-  //     if (totalWidth <= containerWidth) {
-  //       requirementsToShow.push(visibleRequirements[i]);
-  //     } else {
-  //       break;
-  //     }
-  //   }
-  //   setVisibleRequirements(requirementsToShow);
-  // }, [db.jobs.requirements]);
-
   return (
     <>
       {db.map((jobs: any) => {
@@ -35,7 +14,7 @@ export default function SimplifiedJobDesc({
             onClick={() => setActiveElement(jobs)}
             className={`${
               activeElement.id === jobs.id && "lg:border-green-500"
-            } relative p-4 mt-4 flex flex-col w-full lg:w-[calc(50%-4rem)] h-fit border-4 bg-white border-gray-300 rounded-xl whitespace-nowrap overflow-hidden hover:cursor-pointer hover:shadow-md transition-transform hover:-translate-y-1`}
+            } relative p-4 mt-4 flex flex-col w-[95%] h-fit border-2 bg-white border-gray-300 rounded-xl whitespace-nowrap overflow-hidden hover:cursor-pointer hover:shadow-md transition-transform hover:-translate-y-1`}
           >
             <div className="flex flex-col sm:flex-row">
               <div>
